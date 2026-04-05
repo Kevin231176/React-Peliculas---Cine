@@ -1,9 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* FONDO GLOBAL */
+body {
+  background: #000000;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* H1*/
+h1 {
+  margin-bottom: 20px;
+  font-size: 28px;
+  letter-spacing: 2px;
+}
 /* CONTENEDOR */
 .contenedor {
   padding: 20px;
-  background: #141414;
+  background: #000000;
   min-height: 100vh;
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
 /* GRID */
@@ -31,6 +50,19 @@
   border-radius: 12px;
 }
 
+/* 🔥 DEGRADADO ABAJO (NUEVO) */
+.card::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+  border-radius: 12px;
+  z-index: 1;
+}
+
 /* OVERLAY */
 .card::after {
   content: "";
@@ -49,6 +81,13 @@
   margin: 0;
   font-size: 14px;
   color: white;
+  transform: translateX(-50%);
+  text-align: center;
+
+  /* 🔥 NUEVO (clave) */
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+  z-index: 2;
+
   opacity: 0;
   transform: translateY(10px);
   transition: all 0.3s ease;
@@ -72,4 +111,33 @@
 .card:hover h3 {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* 📱 MÓVILES */
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+  }
+
+  .card {
+    width: 90%;
+  }
+
+  .card img {
+    height: 250px;
+  }
+
+  .card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    transition: background 0.3s ease;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }

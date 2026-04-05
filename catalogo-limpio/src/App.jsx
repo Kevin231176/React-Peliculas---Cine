@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "./App.css";
 
 function App() {
@@ -15,11 +16,16 @@ function App() {
 
   return (
     <div className="contenedor">
-      <h1>Películas</h1>
+      <h1>ESTRENOS</h1>
 
       <div className="grid">
         {peliculas.map((peli) => (
-          <div className="card" key={peli.id}>
+          <Link
+            to={`/pelicula/${peli.id}`}
+            state={{ pelicula: peli }}
+            className="card"
+            key={peli.id}
+          >
             {peli.poster_path && (
               <img
                 src={`https://image.tmdb.org/t/p/w500${peli.poster_path}`}
@@ -27,7 +33,7 @@ function App() {
               />
             )}
             <h3>{peli.title}</h3>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
