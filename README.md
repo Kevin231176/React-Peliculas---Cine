@@ -73,7 +73,7 @@ Historial de compras
 Animaciones avanzadas
 Autor
 
-Kevin
+Kevin Escalante
 
 Licencia
 
