@@ -1,6 +1,10 @@
 const API_KEY = import.meta.env.VITE_API_KEY;
 const BASE_URL = import.meta.env.VITE_API_URL || "https://api.themoviedb.org/3";
 
+/** Filtra películas que no tienen sinopsis traducida */
+const filterTranslated = (movies) =>
+  movies.filter((m) => m.overview && m.overview.trim().length > 0 && m.title);
+
 /**
  * Obtiene las películas populares
  */
@@ -15,7 +19,7 @@ export const getPopularMovies = async () => {
     }
 
     const data = await response.json();
-    return data.results;
+    return filterTranslated(data.results);
   } catch (error) {
     console.error("getPopularMovies:", error);
     return [];
@@ -58,7 +62,7 @@ export const searchMovies = async (query) => {
     }
 
     const data = await response.json();
-    return data.results;
+    return filterTranslated(data.results);
   } catch (error) {
     console.error("searchMovies:", error);
     return [];
