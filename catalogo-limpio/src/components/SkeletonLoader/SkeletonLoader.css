@@ -1,0 +1,73 @@
+/* ============================================
+   SKELETON LOADER — Cinemateca Noir
+   ============================================ */
+
+.skeleton-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--space-lg);
+}
+
+.skeleton-card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--noir-card);
+  border: 1px solid var(--noir-border);
+  animation: fadeIn 0.4s ease both;
+}
+
+.skeleton-card__poster {
+  aspect-ratio: 2 / 3;
+  background: linear-gradient(
+    90deg,
+    var(--noir-surface) 0%,
+    var(--noir-hover) 40%,
+    var(--noir-surface) 80%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.8s ease-in-out infinite;
+}
+
+.skeleton-card__info {
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.skeleton-card__title {
+  height: 14px;
+  width: 80%;
+  border-radius: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--noir-surface) 0%,
+    var(--noir-hover) 40%,
+    var(--noir-surface) 80%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.8s ease-in-out infinite;
+  animation-delay: 0.2s;
+}
+
+.skeleton-card__year {
+  height: 10px;
+  width: 40%;
+  border-radius: 4px;
+  background: linear-gradient(
+    90deg,
+    var(--noir-surface) 0%,
+    var(--noir-hover) 40%,
+    var(--noir-surface) 80%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.8s ease-in-out infinite;
+  animation-delay: 0.4s;
+}
+
+@media (max-width: 600px) {
+  .skeleton-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+  }
+}

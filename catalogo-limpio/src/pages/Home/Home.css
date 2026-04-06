@@ -1,0 +1,211 @@
+/* ============================================
+   HOME PAGE — Cinemateca Noir
+   ============================================ */
+
+.home {
+  min-height: 100vh;
+}
+
+/* ── Hero ── */
+.home__hero {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  min-height: 400px;
+  max-height: 650px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+
+.home__hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center 20%;
+  transform: scale(1.05);
+  animation: heroZoom 20s ease-in-out infinite alternate;
+}
+
+@keyframes heroZoom {
+  from { transform: scale(1.05); }
+  to { transform: scale(1.12); }
+}
+
+.home__hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    0deg,
+    var(--noir-deep) 0%,
+    rgba(10, 10, 15, 0.7) 40%,
+    rgba(10, 10, 15, 0.3) 70%,
+    rgba(10, 10, 15, 0.5) 100%
+  );
+}
+
+.home__hero-content {
+  position: relative;
+  z-index: 2;
+  padding: var(--space-3xl) var(--space-2xl);
+  max-width: 700px;
+  animation: fadeInUp var(--duration-slow) var(--ease-out) 0.3s both;
+}
+
+.home__hero-badge {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--gold-primary);
+  background: var(--gold-muted);
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-sm);
+  margin-bottom: var(--space-md);
+  border: 1px solid rgba(212, 168, 87, 0.2);
+}
+
+.home__hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-md);
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+  line-height: 1.1;
+}
+
+.home__hero-overview {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--space-lg);
+  max-width: 550px;
+}
+
+.home__hero-meta {
+  display: flex;
+  gap: var(--space-md);
+  align-items: center;
+}
+
+.home__hero-rating {
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: var(--gold-primary);
+  font-size: 0.95rem;
+}
+
+.home__hero-year {
+  font-family: var(--font-body);
+  font-weight: 500;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  padding-left: var(--space-md);
+  border-left: 1px solid var(--noir-border);
+}
+
+/* ── Catalog Section ── */
+.home__catalog {
+  padding: var(--space-2xl) var(--space-xl);
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.home__catalog-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-xl);
+  margin-bottom: var(--space-2xl);
+  flex-wrap: wrap;
+}
+
+.home__title-group {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
+
+.home__title-accent {
+  width: 4px;
+  height: 28px;
+  background: linear-gradient(180deg, var(--gold-glow), var(--gold-primary));
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.home__title {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Error */
+.home__error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  padding: var(--space-2xl);
+  background: rgba(196, 18, 48, 0.08);
+  border: 1px solid rgba(196, 18, 48, 0.2);
+  border-radius: var(--radius-md);
+  color: var(--text-secondary);
+}
+
+.home__error-icon {
+  font-size: 1.5rem;
+}
+
+/* Grid */
+.home__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--space-lg);
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .home__hero {
+    height: 50vh;
+    min-height: 300px;
+  }
+
+  .home__hero-content {
+    padding: var(--space-xl) var(--space-lg);
+  }
+
+  .home__catalog {
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  .home__catalog-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-md);
+  }
+
+  .home__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .home__hero {
+    height: 45vh;
+  }
+
+  .home__hero-title {
+    font-size: 1.8rem;
+  }
+
+  .home__hero-overview {
+    display: none;
+  }
+}
