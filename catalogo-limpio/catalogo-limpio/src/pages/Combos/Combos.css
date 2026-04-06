@@ -1,0 +1,156 @@
+/* ============================================
+   COMBOS PAGE — Cinemateca Noir
+   ============================================ */
+
+.combos {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-xl);
+  min-height: calc(100vh - 70px);
+}
+
+.combos__header {
+  margin-bottom: var(--space-2xl);
+}
+
+.combos__back {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: var(--space-xs) 0;
+  margin-bottom: var(--space-lg);
+  transition: color var(--duration-fast) var(--ease-out);
+  display: inline-block;
+}
+
+.combos__back:hover {
+  color: var(--gold-primary);
+}
+
+.combos__title-group {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-sm);
+}
+
+.combos__title-accent {
+  width: 4px;
+  height: 32px;
+  background: linear-gradient(180deg, var(--gold-glow), var(--gold-primary));
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.combos__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.combos__subtitle {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-left: calc(4px + var(--space-md));
+}
+
+/* Grid */
+.combos__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+}
+
+/* Card */
+.combo-card {
+  background: var(--noir-card);
+  border: 1px solid var(--noir-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  min-width: 240px;
+  flex-shrink: 0;
+  transition: all var(--duration-normal) var(--ease-out);
+  animation: fadeInUp var(--duration-slow) var(--ease-out) both;
+}
+
+.combo-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(212, 168, 87, 0.25);
+  box-shadow: var(--shadow-gold);
+}
+
+.combo-card__emoji {
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.combo-card__name {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.combo-card__desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  flex: 1;
+}
+
+.combo-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--noir-border);
+}
+
+.combo-card__price {
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--gold-primary);
+}
+
+.combo-card__btn {
+  padding: var(--space-sm) var(--space-lg);
+  background: transparent;
+  border: 1px solid var(--gold-primary);
+  color: var(--gold-primary);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.combo-card__btn:hover {
+  background: var(--gold-primary);
+  color: var(--noir-deep);
+  transform: scale(1.05);
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .combos {
+    padding: var(--space-md);
+  }
+
+  .combos__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  .combo-card {
+    padding: var(--space-lg);
+  }
+}
