@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Spinner from "../../components/spinner/spinner";
 import { getPopularMovies, IMG_ORIGINAL } from "../../services/api";
 import MovieCard from "../../components/MovieCard/MovieCard";
 import SkeletonLoader from "../../components/SkeletonLoader/SkeletonLoader";
@@ -35,6 +36,10 @@ function Home() {
 
   return (
     <div className="home page-content">
+      
+      {/* 🔥 SPINNER OVERLAY */}
+      {loading && <Spinner />}
+
       {/* Hero Section */}
       {heroMovie && (
         <section className="home__hero">
@@ -81,7 +86,7 @@ function Home() {
           <SearchBar />
         </div>
 
-        {/* Error state */}
+        {/* Error */}
         {error && (
           <div className="home__error">
             <span className="home__error-icon">⚠️</span>
@@ -89,7 +94,7 @@ function Home() {
           </div>
         )}
 
-        {/* Loading state */}
+        {/* Skeleton mientras carga contenido */}
         {loading && <SkeletonLoader count={10} />}
 
         {/* Grid */}
