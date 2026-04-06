@@ -1,0 +1,193 @@
+/* ============================================
+   SEATMAP — Cinemateca Noir
+   ============================================ */
+
+.seatmap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+  padding: var(--space-xl) 0;
+}
+
+/* Screen */
+.seatmap__screen {
+  position: relative;
+  width: calc(8 * 50px + 7 * 10px);
+  perspective: 300px;
+}
+
+.seatmap__screen-surface {
+  width: 100%;
+  height: 50px;
+  background: linear-gradient(180deg, #e0e0e0 0%, #a0a0a0 100%);
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  border-radius: 4px 4px var(--radius-md) var(--radius-md);
+  transform: rotateX(-15deg);
+  transform-origin: bottom center;
+}
+
+.seatmap__screen-glow {
+  position: absolute;
+  bottom: -20px;
+  left: -10%;
+  right: -10%;
+  height: 30px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 212, 255, 0.15) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/* Grid */
+.seatmap__grid {
+  display: grid;
+  grid-template-columns: repeat(8, 50px);
+  gap: 10px;
+}
+
+/* Seat base */
+.seatmap__seat {
+  width: 50px;
+  height: 50px;
+  background: var(--noir-hover);
+  border: 1px solid var(--noir-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out);
+  position: relative;
+}
+
+.seatmap__seat::after {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 2px;
+}
+
+.seatmap__seat:hover:not(:disabled) {
+  background: var(--cyan-muted);
+  border-color: var(--cyan-screen);
+  transform: scale(1.15);
+  box-shadow: var(--shadow-cyan);
+}
+
+/* Aisle */
+.seatmap__seat--aisle {
+  background: transparent;
+  border: none;
+  cursor: default;
+  pointer-events: none;
+}
+
+.seatmap__seat--aisle::after {
+  display: none;
+}
+
+/* Selected */
+.seatmap__seat--selected {
+  background: var(--cyan-screen) !important;
+  border-color: var(--cyan-screen) !important;
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+}
+
+.seatmap__seat--selected::after {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Occupied */
+.seatmap__seat--occupied {
+  background: var(--crimson) !important;
+  border-color: var(--crimson) !important;
+  cursor: not-allowed;
+  box-shadow: 0 0 10px rgba(196, 18, 48, 0.3);
+}
+
+.seatmap__seat--occupied::after {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Entrance */
+.seatmap__entrance {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+/* Legend */
+.seatmap__legend {
+  display: flex;
+  gap: var(--space-xl);
+  margin-top: var(--space-md);
+}
+
+.seatmap__legend-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.seatmap__legend-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+}
+
+.seatmap__legend-dot--free {
+  background: var(--noir-hover);
+  border: 1px solid var(--noir-border);
+}
+
+.seatmap__legend-dot--selected {
+  background: var(--cyan-screen);
+}
+
+.seatmap__legend-dot--occupied {
+  background: var(--crimson);
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .seatmap__grid {
+    grid-template-columns: repeat(8, 36px);
+    gap: 6px;
+  }
+
+  .seatmap__seat {
+    width: 36px;
+    height: 36px;
+  }
+
+  .seatmap__screen {
+    width: calc(8 * 36px + 7 * 6px);
+  }
+
+  .seatmap__screen-surface {
+    height: 36px;
+    font-size: 0.7rem;
+  }
+
+  .seatmap__legend {
+    gap: var(--space-md);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

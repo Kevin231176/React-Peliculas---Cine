@@ -1,0 +1,160 @@
+/* ============================================
+   SEARCH BAR — Cinemateca Noir
+   ============================================ */
+
+.search-bar {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+}
+
+.search-bar__input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background: var(--noir-card);
+  border: 1px solid var(--noir-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-sm) var(--space-lg);
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.search-bar__input-wrapper:focus-within {
+  border-color: var(--gold-primary);
+  box-shadow: 0 0 0 3px var(--gold-muted);
+}
+
+.search-bar__icon {
+  font-size: 1rem;
+  opacity: 0.5;
+  flex-shrink: 0;
+}
+
+.search-bar__input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+}
+
+.search-bar__input::placeholder {
+  color: var(--text-muted);
+}
+
+.search-bar__clear {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 0.85rem;
+  padding: 2px 6px;
+  border-radius: 50%;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.search-bar__clear:hover {
+  color: var(--text-primary);
+  background: var(--noir-hover);
+}
+
+/* Spinner */
+.search-bar__spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--noir-border);
+  border-top-color: var(--gold-primary);
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Dropdown */
+.search-bar__dropdown {
+  position: absolute;
+  top: calc(100% + var(--space-sm));
+  left: 0;
+  right: 0;
+  background: var(--noir-card);
+  border: 1px solid var(--noir-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-elevated);
+  overflow: hidden;
+  animation: fadeInUp 0.25s var(--ease-out);
+  z-index: 50;
+}
+
+.search-bar__result {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-sm) var(--space-md);
+  text-decoration: none;
+  transition: background var(--duration-fast) var(--ease-out);
+  border-bottom: 1px solid var(--noir-border);
+}
+
+.search-bar__result:last-child {
+  border-bottom: none;
+}
+
+.search-bar__result:hover {
+  background: var(--noir-hover);
+}
+
+.search-bar__result-img {
+  width: 40px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+
+.search-bar__result-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--noir-surface);
+  font-size: 1.2rem;
+}
+
+.search-bar__result-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.search-bar__result-title {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.search-bar__result-year {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.search-bar__no-results {
+  padding: var(--space-lg);
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 600px) {
+  .search-bar {
+    max-width: 100%;
+  }
+}

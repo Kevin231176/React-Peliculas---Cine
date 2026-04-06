@@ -1,0 +1,126 @@
+/* ============================================
+   HEADER — Cinemateca Noir
+   ============================================ */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10, 10, 15, 0.85);
+  backdrop-filter: blur(20px) saturate(1.5);
+  -webkit-backdrop-filter: blur(20px) saturate(1.5);
+  border-bottom: 1px solid var(--noir-border);
+}
+
+/* Gold accent line */
+.header::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--gold-primary) 30%,
+    var(--gold-glow) 50%,
+    var(--gold-primary) 70%,
+    transparent 100%
+  );
+  opacity: 0.5;
+}
+
+.header__inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: var(--space-md) var(--space-xl);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.header__logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  text-decoration: none;
+  transition: transform var(--duration-fast) var(--ease-out);
+}
+
+.header__logo:hover {
+  transform: scale(1.03);
+}
+
+.header__logo-icon {
+  font-size: 1.6rem;
+  filter: drop-shadow(0 0 8px rgba(212, 168, 87, 0.4));
+}
+
+.header__logo-text {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--gold-glow), var(--gold-primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 0.02em;
+}
+
+/* Nav */
+.header__nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.header__link {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-sm);
+  transition: all var(--duration-fast) var(--ease-out);
+  position: relative;
+}
+
+.header__link:hover {
+  color: var(--text-primary);
+  background: var(--gold-muted);
+}
+
+.header__link--active {
+  color: var(--gold-primary);
+}
+
+.header__link--active::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 2px;
+  background: var(--gold-primary);
+  border-radius: 1px;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .header__inner {
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  .header__logo-text {
+    font-size: 1.2rem;
+  }
+
+  .header__link {
+    font-size: 0.8rem;
+    padding: var(--space-xs) var(--space-sm);
+  }
+}
