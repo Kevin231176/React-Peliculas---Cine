@@ -45,7 +45,9 @@ VITE_API_KEY=TU_API_KEY
 Puedes obtener tu API en:
 https://www.themoviedb.org/
 
-Link funcional: https://69d16197c1d67e145278555b--gentle-pie-a8d729.netlify.app/
+Link funcional: https://proyecto-cine-react.netlify.app](https://proyecto-cine-react.netlify.app
+
+
 
 Estructura del proyecto
 
